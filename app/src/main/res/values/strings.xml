@@ -10,6 +10,8 @@
 
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
+    <string name="error_outOfIndex">There is not any question  previous, this is the first question!</string>
+
 
     <!-- QUESTIONS  -->
 

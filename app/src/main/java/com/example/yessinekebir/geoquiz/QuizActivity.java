@@ -18,7 +18,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnTrue;
     private Button btnFalse;
     private Button nextBtn;
-    //private ImageButton prevBtn;
+    private Button prevBtn;
+     //private ImageButton prevBtn;  --> Se un icona fare cosi
+
 
     private TextView mQuestionTextView;
 
@@ -43,9 +45,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         btnTrue = findViewById(R.id.button_true);
         btnFalse = findViewById(R.id.button_false);
         nextBtn = findViewById(R.id.next_button);
+        prevBtn = findViewById(R.id.prev_button);
         btnTrue.setOnClickListener(this);
         btnFalse.setOnClickListener(this);
         nextBtn.setOnClickListener(this);
+        prevBtn.setOnClickListener(this);
 
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
         updateQuestion();
@@ -115,6 +119,16 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.next_button:
                 mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
                 updateQuestion();
+                break;
+
+            case R.id.prev_button:
+                if (mCurrentIndex>0) {
+                    mCurrentIndex = (mCurrentIndex - 1) % mQuestionBank.length;
+                    updateQuestion();
+                } else {
+                    Toast.makeText(this, R.string.error_outOfIndex, Toast.LENGTH_SHORT).show();
+                }
+                break;
             default:
                 break;
         }
